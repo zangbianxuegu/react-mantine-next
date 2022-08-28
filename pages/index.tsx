@@ -6,39 +6,10 @@ import Grid from '../components/Grid/Grid';
 import Card from '../components/Card/Card';
 import { usePopularMovies, useSearchMovies } from '../api/movies';
 import { IMAGE_BASE_URL, BACKDROP_SIZE, POSTER_SIZE } from '../config';
-
-type Data = {
-  results: Item[];
-  total_pages: number;
-  total_results: number;
-  page: number;
-};
-
-type Result = {
-  data: Data;
-  isLoading?: boolean;
-  isError?: boolean;
-};
-
-type Item = {
-  adult: boolean;
-  backdrop_path: string;
-  genre_ids: number[];
-  id: number;
-  original_language: string;
-  original_title: string;
-  overview: string;
-  popularity: number;
-  poster_path: string;
-  release_date: string;
-  title: string;
-  video: boolean;
-  vote_average: number;
-  vote_count: number;
-};
+import { Result } from '../api/types';
 
 export default function HomePage() {
-  const [query, setQuery] = useDebouncedState('', 300);
+  const [query, setQuery] = useDebouncedState<string>('', 300);
 
   const { data: popularMovies }: Result = usePopularMovies();
 

@@ -3,7 +3,7 @@ import useStyles from './Header.style';
 import { HeaderSearch } from './HeaderSearch';
 
 type Props = {
-  setQuery: React.Dispatch<React.SetStateAction<string>>;
+  setQuery: (newValue: string) => void;
 };
 
 export default function Header({ setQuery }: Props) {

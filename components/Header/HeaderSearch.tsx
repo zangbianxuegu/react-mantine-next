@@ -2,7 +2,7 @@ import { Input, Image } from '@mantine/core';
 import useStyles from './Header.style';
 
 type Props = {
-  setQuery: React.Dispatch<React.SetStateAction<string>>;
+  setQuery: (newValue: string) => void;
 };
 
 export function HeaderSearch({ setQuery }: Props) {
